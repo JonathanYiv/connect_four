@@ -41,17 +41,17 @@ I somehow have to use a search function to look at all nearby nodes for an inser
 ### Project Structure
 
 ```ruby
-# gameboard.rb
-class GameBoard
-	instance variables:
-		@board: is an array of column arrays
-		@player1
-		@player2
-		@player_turn: will be 1 or 2
-	methods:
-		play: displays the title, @board, and instructions
-			title: displays an ASCII art title
-			display: displays @board in the shape of a Connect Four game
+# gameboard.rb ✓
+class GameBoard ✓
+	instance variables: ✓
+		@board: is an array of column arrays ✓
+		@player1 ✓
+		@player2 ✓
+		@player_turn: will be 1 or 2 ✓
+	methods: ✓
+		play: displays the title, @board, and instructions ✓
+			title: displays an ASCII art title ✓
+			display: displays @board in the shape of a Connect Four game ✓
 			instructions: displays the game instructions
 			turns: starts a loop that changes @player_turn value every turn and checks for win scenario
 				turn: has @player1/@player2 take_turn and add_disc to @board
@@ -60,14 +60,14 @@ class GameBoard
 							   it will check in the same direction to see if there are 4 in a row, if so, win conditions are met
 			win: displays winning text
 
-# player.rb
-class Player
-	instance variables:
-		@name: player name
-	methods:
+# player.rb ✓
+class Player ✓
+	instance variables: ✓
+		@name: player name ✓
+	methods: ✓
 		take_turn: gets input to pass to GameBoard.add_disc
 
-# game.rb
+# game.rb ✓
 # requires gameboard and player classes, asks for player names, then starts the game
 ```
 
