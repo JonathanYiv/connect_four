@@ -79,7 +79,7 @@ class Player ✓
 
 3. This was one of the more frustrating projects because I already had the layout for the entire program made, and just needed to implement it. Changing my mindset towards making tests first was and still is inhibiting on productivity, although I can understand why it is beneficial in the long term. Since this project asked me to test every single thing meticulously, I learned that there are some things that are definitely meant to be tested or are not worth testing. I will not test those things in the future, but I will try to integrate TDD into my development workflow. Sigh.
 
-4. After some investigation, apaprently a [Psuedo-Terminal](https://ruby-doc.org/stdlib-2.2.3/libdoc/pty/rdoc/PTY.html) might have sufficed for testing IO. I feel this is too complicated for my current level.
+4. After some investigation, apparently a [Psuedo-Terminal](https://ruby-doc.org/stdlib-2.2.3/libdoc/pty/rdoc/PTY.html) might have sufficed for testing IO. I feel this is too complicated for my current level.
 
 5. There do not appear to be very many up to date resources on RSpec. Here's a brief overview with rankings from my best to worst:
 
