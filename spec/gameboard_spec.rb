@@ -9,7 +9,7 @@ describe GameBoard do
 	end
 
 	it "has instance variables: board, player1, player2, and player_turn" do
-		expect(gameboard).to respond_to(:board, :player1, :player2, :player_turn)
+		expect(gameboard).to respond_to(:board, :player1, :player2, :turns)
 	end
 
 	describe "instance variables" do
@@ -20,9 +20,9 @@ describe GameBoard do
 			end
 		end
 
-		describe "player turn" do
+		describe "turns" do
 			it "starts as 1" do
-				expect(gameboard.player_turn).to eq(1)
+				expect(gameboard.turns).to eq(1)
 			end
 		end
 
@@ -68,7 +68,8 @@ describe GameBoard do
 |   |   |   |   |   |   |   |
 +---+---+---+---+---+---+---+
 |   |   |   |   |   |   |   |
-+---+---+---+---+---+---+---+")
++---+---+---+---+---+---+---+
+  1   2   3   4   5   6   7")
 
 			gameboard.display
 		end
@@ -86,7 +87,8 @@ describe GameBoard do
 |   |   |   |   |   |   | ☯ |
 +---+---+---+---+---+---+---+
 |   |   |   |   |   |   |   |
-+---+---+---+---+---+---+---+")
++---+---+---+---+---+---+---+
+  1   2   3   4   5   6   7")
 
 			gameboard.board[0][5] = "☯"
 			gameboard.board[2][2] = "☢"
@@ -96,7 +98,15 @@ describe GameBoard do
 		end		
 	end
 
+	describe "#instructions" do
+		it "outputs instructions" do
+			expect(STDOUT).to receive(:puts).with("\nWelcome to Connect Four!
+				\nThis is a two player game where you will take turns dropping 'discs' from the top of the board.
+				\nWhoever gets four in a row, whether horizontally, vertically, or diagonally, wins!")
 
+			gameboard.instructions
+		end
+	end
 end
 
 =begin

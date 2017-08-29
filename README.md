@@ -52,7 +52,7 @@ class GameBoard ✓
 		play: displays the title, @board, and instructions ✓
 			title: displays an ASCII art title ✓
 			display: displays @board in the shape of a Connect Four game ✓
-			instructions: displays the game instructions
+			instructions: displays the game instructions ✓
 			turns: starts a loop that changes @player_turn value every turn and checks for win scenario
 				turn: has @player1/@player2 take_turn and add_disc to @board
 					add_disc: adds a value to the 'bottom' of the column array in the appropriate @board array
@@ -65,12 +65,40 @@ class Player ✓
 	instance variables: ✓
 		@name: player name ✓
 	methods: ✓
-		take_turn: gets input to pass to GameBoard.add_disc
+		take_turn: gets input to pass to GameBoard.add_disc ✓
 
 # game.rb ✓
-# requires gameboard and player classes, asks for player names, then starts the game
+# requires gameboard and player classes ✓
+# asks for player names ✓
+# then starts the game ✓
 ```
 
 ## Post-Project Thoughts
 
 This project is currently incomplete...
+
+1. As I created tests, I ran into the issue of properly testing File IO. After evaluation and feedback from the Odin Chat, it appears that you simply wouldn't test the IO. You would just test the behavior/interface and not the implementation. Now, for the purposes of this exercise, they mandated that anything I code must have a test for it, so... I will do it for the sake of practice but I understand the reality going forward. Update (Several Hours Later): I will not test IO. Testing input and output and sanitizing input is just.. ridiculously complex and annoying for the scope of this project.
+
+2. Furthermore, @KevinMulhern helped me understand that testing particular implementation details makes the tests brittle as opposed to testing behavior.
+
+3. This was one of the more frustrating projects because I already had the layout for the entire program made, and just needed to implement it. Changing my mindset towards making tests first was and still is inhibiting on productivity, although I can understand why it is beneficial in the long term. Since this project asked me to test every single thing meticulously, I learned that there are some things that are definitely meant to be tested or are not worth testing. I will not test those things in the future, but I will try to integrate TDD into my development workflow. Sigh.
+
+4. After some investigation, apaprently a [Psuedo-Terminal](https://ruby-doc.org/stdlib-2.2.3/libdoc/pty/rdoc/PTY.html) might have sufficed for testing IO. I feel this is too complicated for my current level.
+
+5. There do not appear to be very many up to date resources on RSpec. 
+
+	1. [The RSpec Book](https://pragprog.com/book/achbd/the-rspec-book) is multiple versions and seven years behind at this time. 
+
+	2. The [official documentation](http://rspec.info/documentation/) and [Relish documentation](https://relishapp.com/rspec) while useful and informative, aren't really beginner friendly. 
+
+	3. There are minimal blog posts with information very spread out. 
+
+	4. [Semaphore's Learn RSpec](https://semaphoreci.com/community/series/learn-rspec) series is great, among RubyPigeon's [Core](http://www.rubypigeon.com/posts/rspec-core-cheat-sheet/) and [Expectations](http://www.rubypigeon.com/posts/rspec-expectations-cheat-sheet/) cheat sheets. 
+
+	5. [BetterSpecs](http://www.betterspecs.org/), while informative, also appears to be outdated with the most recent substantial changes occuring about two years ago. 
+
+	6. [CodeSchool's RSpec Course](http://rspec.codeschool.com/levels/1) is.. meh. Their new one requires a subscription.
+
+	7. One of the maintainer's 2 hour [Screencast Course on PluralSight](https://www.pluralsight.com/courses/rspec-ruby-application-testing) is very informative, but it's not well-suited for beginners and doesn't really fill in my gaps of knowledge for HOW and WHAT to test in an easy-to-understand way.
+
+	8. There is an official up-to-date beta [Effective Testing with RSpec 3](https://pragprog.com/book/rspec3/effective-testing-with-rspec-3) book, however, it costs money and obviously, my goal is to achieve my learning without cost.
