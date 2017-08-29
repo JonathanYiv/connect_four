@@ -18,7 +18,7 @@ Test-Driven Development follows this cycle:
 
 This is a project from [The Odin Project](https://www.theodinproject.com/courses/ruby-programming/lessons/testing-ruby).
 
-[Pending Project Image...]
+![Connect Four](./connect_four.png)
 
 ## Installation
 
@@ -72,8 +72,6 @@ class Player ✓
 ```
 
 ## Post-Project Thoughts
-
-This project is currently incomplete...
 
 1. As I created tests, I ran into the issue of properly testing File IO. After evaluation and feedback from the Odin Chat, it appears that you simply wouldn't test the IO. You would just test the behavior/interface and not the implementation. Now, for the purposes of this exercise, they mandated that anything I code must have a test for it, so... I will do it for the sake of practice but I understand the reality going forward. Update (Several Hours Later): I will not test IO. Testing input and output and sanitizing input is just.. ridiculously complex and annoying for the scope of this project.
 
