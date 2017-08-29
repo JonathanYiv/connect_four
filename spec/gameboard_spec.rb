@@ -8,8 +8,8 @@ describe GameBoard do
 		expect(gameboard).to be_instance_of GameBoard
 	end
 
-	it "has instance variables: board, player1, player2, and player_turn" do
-		expect(gameboard).to respond_to(:board, :player1, :player2, :turns)
+	it "has instance variables: board, player1, player2, options, and turn_number" do
+		expect(gameboard).to respond_to(:board, :player1, :player2, :turn_number, :options)
 	end
 
 	describe "instance variables" do
@@ -20,9 +20,9 @@ describe GameBoard do
 			end
 		end
 
-		describe "turns" do
+		describe "turn_number" do
 			it "starts as 1" do
-				expect(gameboard.turns).to eq(1)
+				expect(gameboard.turn_number).to eq(1)
 			end
 		end
 
@@ -31,16 +31,6 @@ describe GameBoard do
 				test_board = Array.new(7) { Array.new(6, " ") }
 				expect(gameboard.board).to eq(test_board)
 			end
-		end
-	end
-
-	describe "#play" do
-		it "calls the title, gameboard, and instructions" do
-			expect(gameboard).to receive(:title)
-			expect(gameboard).to receive(:display)
-			expect(gameboard).to receive(:instructions)
-
-			gameboard.play
 		end
 	end
 
@@ -56,7 +46,7 @@ describe GameBoard do
 
 	describe "#display" do
 		it "prints the game board" do
-			expect(STDOUT).to receive(:puts).with("+---+---+---+---+---+---+---+
+			expect(STDOUT).to receive(:puts).with("\n+---+---+---+---+---+---+---+
 |   |   |   |   |   |   |   |
 +---+---+---+---+---+---+---+
 |   |   |   |   |   |   |   |
@@ -75,7 +65,7 @@ describe GameBoard do
 		end
 
 		it "handles modified game boards" do
-			expect(STDOUT).to receive(:puts).with("+---+---+---+---+---+---+---+
+			expect(STDOUT).to receive(:puts).with("\n+---+---+---+---+---+---+---+
 | ☯ |   |   |   |   |   |   |
 +---+---+---+---+---+---+---+
 |   |   |   |   |   |   |   |
@@ -98,48 +88,38 @@ describe GameBoard do
 		end		
 	end
 
-	describe "#instructions" do
-		it "outputs instructions" do
-			expect(STDOUT).to receive(:puts).with("\nWelcome to Connect Four!
-				\nThis is a two player game where you will take turns dropping 'discs' from the top of the board.
-				\nWhoever gets four in a row, whether horizontally, vertically, or diagonally, wins!")
+	describe "#check_for_win" do
+		describe "#check_horizontal_wins" do
+			it "acknowledges horizontal wins" do
+				gameboard.board[3][5] = "☯"
+				gameboard.board[4][5] = "☯"
+				gameboard.board[5][5] = "☯"
+				gameboard.board[6][5] = "☯"
 
-			gameboard.instructions
+				expect(gameboard.check_horizontal_wins).to be true
+			end
+		end
+
+		describe "#check_vertical_wins" do
+			it "acknowledges vertical wins" do
+				gameboard.board[4][2] = "☯"
+				gameboard.board[4][3] = "☯"
+				gameboard.board[4][4] = "☯"
+				gameboard.board[4][5] = "☯"
+
+				expect(gameboard.check_vertical_wins).to be true
+			end
+		end
+
+		describe "#check_diagonal_wins" do
+			it "acknowleges diagonal wins" do
+				gameboard.board[3][3] = "☯"
+				gameboard.board[4][2] = "☯"
+				gameboard.board[5][1] = "☯"
+				gameboard.board[6][0] = "☯"
+
+				expect(gameboard.check_diagonal_wins).to be true
+			end
 		end
 	end
 end
-
-=begin
-Board
-+---+---+---+---+---+---+---+
-|   |   |   |   |   |   |   |
-+---+---+---+---+---+---+---+
-|   |   |   |   |   |   |   |
-+---+---+---+---+---+---+---+
-|   |   |   |   |   |   |   |
-+---+---+---+---+---+---+---+
-|   |   |   |   |   |   |   |
-+---+---+---+---+---+---+---+
-|   |   |   |   |   |   |   |
-+---+---+---+---+---+---+---+
-|   |   |   |   |   |   |   |
-+---+---+---+---+---+---+---+
-
-Disks
-☯ = Ying Yang Disk
-☢ = Radioactive Disk
-
-class Class
-	def test
-		puts "testing"
-	end
-end
-
-describe Class do
-	it "puts from test method" do
-		expect(STDOUT).to receive(:puts).with("testing")
-
-		class.test
-	end
-end
-=end

@@ -20,8 +20,6 @@ This is a project from [The Odin Project](https://www.theodinproject.com/courses
 
 [Pending Project Image...]
 
-![Connect Four](connect_four.jpg)
-
 ## Installation
 
 Open your Terminal/Command Line. Navigate to the directory where your version will live. Type in the following:
@@ -49,10 +47,10 @@ class GameBoard ✓
 		@player2 ✓
 		@player_turn: will be 1 or 2 ✓
 	methods: ✓
-		play: displays the title, @board, and instructions ✓
+		play: displays the title, @board, and instructions 
 			title: displays an ASCII art title ✓
 			display: displays @board in the shape of a Connect Four game ✓
-			instructions: displays the game instructions ✓
+			instructions: displays the game instructions 
 			turns: starts a loop that changes @player_turn value every turn and checks for win scenario
 				turn: has @player1/@player2 take_turn and add_disc to @board
 					add_disc: adds a value to the 'bottom' of the column array in the appropriate @board array
@@ -65,12 +63,12 @@ class Player ✓
 	instance variables: ✓
 		@name: player name ✓
 	methods: ✓
-		take_turn: gets input to pass to GameBoard.add_disc ✓
+		take_turn: gets input to pass to GameBoard.add_disc 
 
 # game.rb ✓
 # requires gameboard and player classes ✓
 # asks for player names ✓
-# then starts the game ✓
+# then starts the game 
 ```
 
 ## Post-Project Thoughts
@@ -85,20 +83,50 @@ This project is currently incomplete...
 
 4. After some investigation, apaprently a [Psuedo-Terminal](https://ruby-doc.org/stdlib-2.2.3/libdoc/pty/rdoc/PTY.html) might have sufficed for testing IO. I feel this is too complicated for my current level.
 
-5. There do not appear to be very many up to date resources on RSpec. 
+5. There do not appear to be very many up to date resources on RSpec. Here's a brief overview with rankings from my best to worst:
 
-	1. [The RSpec Book](https://pragprog.com/book/achbd/the-rspec-book) is multiple versions and seven years behind at this time. 
+	1. RubyPigeon's [Core](http://www.rubypigeon.com/posts/rspec-core-cheat-sheet/) and [Expectations](http://www.rubypigeon.com/posts/rspec-expectations-cheat-sheet/) cheat sheets are fantastic.
 
-	2. The [official documentation](http://rspec.info/documentation/) and [Relish documentation](https://relishapp.com/rspec) while useful and informative, aren't really beginner friendly. 
+	2. [Semaphore's Learn RSpec](https://semaphoreci.com/community/series/learn-rspec) series is also great.
 
-	3. There are minimal blog posts with information very spread out. 
+	3. The [official documentation](http://rspec.info/documentation/) and [Relish documentation](https://relishapp.com/rspec) while useful and informative, aren't really beginner friendly. 
 
-	4. [Semaphore's Learn RSpec](https://semaphoreci.com/community/series/learn-rspec) series is great, among RubyPigeon's [Core](http://www.rubypigeon.com/posts/rspec-core-cheat-sheet/) and [Expectations](http://www.rubypigeon.com/posts/rspec-expectations-cheat-sheet/) cheat sheets. 
+	4. One of the maintainer's 2 hour [Screencast Course on PluralSight](https://www.pluralsight.com/courses/rspec-ruby-application-testing) is very informative, but it's not well-suited for beginners and doesn't really fill in my gaps of knowledge for HOW and WHAT to test in an easy-to-understand way. (To be fair, the course description does say that it is recommended for intermediate level programmers, so I was in over my head.)
 
 	5. [BetterSpecs](http://www.betterspecs.org/), while informative, also appears to be outdated with the most recent substantial changes occuring about two years ago. 
+	
+	6. [The RSpec Book](https://pragprog.com/book/achbd/the-rspec-book) is multiple versions and seven years behind at this time. 
 
-	6. [CodeSchool's RSpec Course](http://rspec.codeschool.com/levels/1) is.. meh. Their new one requires a subscription.
+	7. There are minimal blog posts with information very spread out.
 
-	7. One of the maintainer's 2 hour [Screencast Course on PluralSight](https://www.pluralsight.com/courses/rspec-ruby-application-testing) is very informative, but it's not well-suited for beginners and doesn't really fill in my gaps of knowledge for HOW and WHAT to test in an easy-to-understand way.
+	8. [CodeSchool's RSpec Course](http://rspec.codeschool.com/levels/1) is.. meh. Their new one requires a subscription.
 
-	8. There is an official up-to-date beta [Effective Testing with RSpec 3](https://pragprog.com/book/rspec3/effective-testing-with-rspec-3) book, however, it costs money and obviously, my goal is to achieve my learning without cost.
+	9. There is an official up-to-date beta [Effective Testing with RSpec 3](https://pragprog.com/book/rspec3/effective-testing-with-rspec-3) book, however, it costs money and obviously, my goal is to achieve my learning without cost.
+
+6. This project took me way too long. Methods without tests include:
+
+	1. gameboard.rb
+
+		1. #win
+
+		2. #draw
+
+		3. #check_for_win
+
+		4. #add_disc
+
+		5. #turn
+
+		6. #turns
+
+		7. #play
+
+		8. #instructions
+
+	2. player.rb
+
+		1. #take_turn
+
+	3. game.rb
+
+		1. play_game

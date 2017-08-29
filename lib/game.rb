@@ -16,4 +16,4 @@ def play_game(stdin= $stdin, stdin2 = $stdin)
 	game.play
 end
 
-#play_game
+play_game
