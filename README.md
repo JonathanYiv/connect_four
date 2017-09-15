@@ -128,3 +128,5 @@ class Player ✓
 	3. game.rb
 
 		1. play_game
+		
+7. Looking back from further along, I realize that [TDD is dead](http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html). @benjaminapetersen and me had discussed testing previously and he had mentioned the idea of a 'spike/sprint.' You code first to get something working, then write a test if necessary, then refactor. This sounds much better than TDD. For this project, there was some cognitive dissonance when trying to get 100% test coverage, but I realize now that a dogmatic approach to testing can be a negative rather than a benefit. 
